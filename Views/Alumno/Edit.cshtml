@@ -4,48 +4,48 @@
 <hr class="my-4" />
 <main class="container-fluid">
     <form class="d-flex flex-column gap-2" asp-action="Edit" method="post">
-        <input type="hidden" asp-for="Id"/>
+        <input type="hidden" asp-for="Id" />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-group">
             <label asp-for="Nombre" class="control-label"></label>
             <input asp-for="Nombre" class="form-control" />
-            <span asp-validation-for="Nombre"></span>
+            <span class="text-danger" asp-validation-for="Nombre"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Matricula" class="control-label"></label>
             <input asp-for="Matricula" class="form-control" />
-            <span asp-validation-for="Matricula"></span>
+            <span class="text-danger" asp-validation-for="Matricula"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Email" class="control-label"></label>
             <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email"></span>
+            <span class="text-danger" asp-validation-for="Email"></span>
         </div>
 
-
-        <div class="form-group">
+        <div class="form-check">
             <input asp-for="Repetidor" class="form-check-input" />
-            <label asp-for="Repetidor" class="control-label"></label>
+            <label asp-for="Repetidor" class="form-check-label"></label>
         </div>
 
-        <div class="form-group">
+        <div class="form-check">
             <input asp-for="Activo" class="form-check-input" />
-            <label asp-for="Activo" class="control-label"></label>
+            <label asp-for="Activo" class="form-check-label"></label>
         </div>
 
         <div class="form-group">
             <label asp-for="Sexo" class="control-label"></label>
-            <select asp-for="Sexo" asp-items="ViewBag.Sexos" class="form-select"/>
-            <span asp-validation-for="Sexo"></span>
+            <select asp-for="Sexo" asp-items="ViewBag.Sexos" class="form-select">
+                
+            </select>
+            <span class="text-danger" asp-validation-for="Sexo"></span>
         </div>
 
-        <div class="form-group d-felx align-items-center justify-content-center mt-1">
+        <div class="form-group d-flex align-items-center justify-content-center mt-1">
             <button type="submit" class="btn btn-outline-primary w-25">Guardar</button>
         </div>
-
     </form>
 </main>
 
