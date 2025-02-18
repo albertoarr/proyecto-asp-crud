@@ -1,0 +1,69 @@
+﻿@using ConfeccionInformesMVC.Models
+@model IEnumerable<Alumno>
+
+@{
+    ViewData["Title"] = "Alumnos";
+}
+
+<h1 class="mb-3">Listado de Alumnos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Repetidor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Repetidor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    <div class="d-flex aling-items-center gap-2">
+                        <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">
+                            Editar
+                        </a>
+                        <form asp-action="Delete" method="post" onsubmit="return confirm('¿Seguro que quieres eliminar el alumno  @item.Nombre?')">
+                            <input type="hidden" name="id" value="@item.Id"/>
+                            <button type="submit" class="brn brn-outline-danger">Eliminar</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
